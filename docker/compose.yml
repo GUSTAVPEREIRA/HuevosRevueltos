@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: "postgres"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: pollos
+      POSTGRES_PASSWORD: los_pollos
+      POSTGRES_DB: Granja
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - "./prometheus.yml:/etc/prometheus/prometheus.yml"
+    ports:
+      - "9090:9090"
+
+  backend-application:
+    build:
+      context: ../
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: "docker"
