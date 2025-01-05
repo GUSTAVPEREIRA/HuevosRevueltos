@@ -7,7 +7,7 @@ import org.springframework.data.relational.core.mapping.Table;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
+@Table(name = "farm_user")
 @Getter
 public class FarmUser {
 
