@@ -21,7 +21,6 @@ public class UserDetailsImpl implements UserDetails {
         this.farmUser = farmUser;
     }
 
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return farmUser.getRoles()
